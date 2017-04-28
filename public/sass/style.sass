@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,300i,700,700i')
+
+$or: 0.618034
+$marger: 9.4625%
+$inner_percentage: 100% - 2 * $marger
+$abril: 'Abril Fatface', cursive
+$roboto: 'Roboto', sans-serif
+
+
+body
+	margin: 0 0 0 0
+
+p
+	font-family: $roboto
+
+.tabulation
+	display: inline-block
+	width: 30px
+
+.bold
+	font-style: normal
+	font-weight: 700
+
+.marger
+	width: $marger
+	position: relative
+	.marger-wrap
+		padding-top: $or * 100% /* proportion divine */
+		.marger-inner
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+
+
+#left, #right
+	display: inline-block
+	height: 100px
+	vertical-align: top
+
+
+#left
+	width: $inner_percentage - ($inner_percentage * $or)
+	max-width: $inner_percentage - ($inner_percentage * $or)
+	margin-left: $marger
+	.marger
+		width: 100%
+		.marger-wrap
+			#top-left
+				h1
+					line-height: 43px
+					margin: 20px 0px 0px 20px
+					font-family: $abril
+					font-size: 48px
+				p
+					font-size: 18px
+					margin-top: 40px
+					margin-left: 40px
+					margin-right: 40px
+
+	#bottom-left
+		width: 100%
+		height: 100px
+
+#right
+	width: $inner_percentage * $or
+	max-width: $inner_percentage * $or

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	div.marger
+		div.marger-wrap
+			div.marger-inner
+	section#left
+		div.marger
+			div.marger-wrap
+				section.marger-inner#top-left
+					h1= name.first + ' ' + name.last
+					p!= description
+		section#bottom-left
+	section#right
