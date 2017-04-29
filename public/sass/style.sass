@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,300i,700,700i')
 
-$or: 0.618034
+$or: 0.618034  /* proportion divine */
 $marger: 9.4625%
+$marger-little: 3.0000%
 $inner_percentage: 100% - 2 * $marger
+$inner_percentage-little: 100% - 2 * $marger-little
 $abril: 'Abril Fatface', cursive
 $roboto: 'Roboto', sans-serif
+$touch-color: #1DD3B0
+$grey: #939598
 
+//*
+//	background-color: rgba(0,0,0,0.05)
 
-body
-	margin: 0 0 0 0
+html
+	height: 100%
+	body
+		margin: 0 0 0 0
+		height: 100%
 
 p
 	font-family: $roboto
@@ -21,11 +30,44 @@ p
 	font-style: normal
 	font-weight: 700
 
+h1, h2, h3, h4, h5, h6
+	line-height: 0px
+	font-family: $roboto
+	font-weight: normal
+
+h1
+	font-size: 30px
+
+h3
+	font-size: 18px
+	color: $grey
+
+@media screen and (max-width : 1650px)
+	.marger
+		width: $marger-little
+	#left
+		width: $inner_percentage-little - ($inner_percentage-little * $or)
+		max-width: $inner_percentage-little - ($inner_percentage-little * $or)
+		margin-left: $marger-little
+	#right
+		width: $inner_percentage-little * $or
+		max-width: $inner_percentage-little * $or
+
+@media screen and (min-width : 1651px)
+	.marger
+		width: $marger
+	#left
+		width: $inner_percentage ($inner_percentage * $or)
+		max-width: $inner_percentage - ($inner_percentage * $or)
+		margin-left: $marger
+	#right
+		width: $inner_percentage * $or
+		max-width: $inner_percentage * $or
+
 .marger
-	width: $marger
 	position: relative
 	.marger-wrap
-		padding-top: $or * 100% /* proportion divine */
+		padding-top: $or * 100%
 		.marger-inner
 			position: absolute
 			top: 0
@@ -33,36 +75,85 @@ p
 			right: 0
 			bottom: 0
 
+.button
+	color: black
+	text-decoration: none
+	font-family: $roboto
+	font-size: 14px
+	padding: 6px 10px 6px 10px
+	border: 2px solid black
+	border-radius: 9px
+	transition-duration: 0.10s
+	margin-left: 10px
+
+.button:hover
+	background-color: black
+	color: white
+	border-color: black
+	transition-duration: 0.10s
+
+.highlight-button
+	color: white
+	background: $touch-color
+	border-color: $touch-color
+	transition-duration: 0.10s
+
+.highlight-button:hover
+	background-color: white
+	color: $touch-color
+	border-color: $touch-color
+	transition-duration: 0.10s
 
 #left, #right
 	display: inline-block
-	height: 100px
 	vertical-align: top
 
-
 #left
-	width: $inner_percentage - ($inner_percentage * $or)
-	max-width: $inner_percentage - ($inner_percentage * $or)
-	margin-left: $marger
-	.marger
-		width: 100%
-		.marger-wrap
-			#top-left
-				h1
-					line-height: 43px
-					margin: 20px 0px 0px 20px
-					font-family: $abril
-					font-size: 48px
-				p
-					font-size: 18px
-					margin-top: 40px
-					margin-left: 40px
-					margin-right: 40px
-
-	#bottom-left
-		width: 100%
-		height: 100px
+	h1
+		line-height: 43px
+		margin: 20px 0px 0px 20px
+		font-family: $abril
+		font-size: 48px
+	p
+		font-size: 18px
+		margin: 40px 40px 0px 40px
+	#projects
+		display: block
+		margin-top: 50px
+		.project
+			margin: 30px 0 0 0
+			font-family: $roboto
+			font-size: 18px
+			.project-infos
+				display: inline-block
+				position: relative
+				top: 2px
+				.project-name
+					margin-left: 15px
+					text-decoration: none
+					color: black;
+				.project-time
+					color: $grey
 
 #right
-	width: $inner_percentage * $or
-	max-width: $inner_percentage * $or
+	.project-right
+		padding-top: 20px
+		margin-left: 20px
+		header
+			clear: both
+			.project-title
+				display: inline-block
+				h3
+					line-height: 6px
+			.skills
+				float: right
+				margin-top: 25px
+		img
+			width: 200px
+			height: auto
+			float: left
+			margin-left: 20px
+			margin-right: 20px
+		p
+			margin-left: 20px
+			margin-right: 20px

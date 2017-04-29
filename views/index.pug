@@ -5,10 +5,38 @@ block content
 		div.marger-wrap
 			div.marger-inner
 	section#left
-		div.marger
-			div.marger-wrap
-				section.marger-inner#top-left
-					h1= name.first + ' ' + name.last
-					p!= description
-		section#bottom-left
+		h1= name.first + ' ' + name.last
+		p!= description
+		#projects
+			each project in projects
+				.project
+					each button in project.skills
+						case button.highlight
+							when true
+								a.button.highlight-button(href="#")= button.value
+								- break
+							default
+								a.button(href="#")= button.value
+					.project-infos
+						a.project-name(href="#")= project.short
+							|  - 
+						span.project-time(href="#")= project.date
 	section#right
+		each project in projects
+			.project-right
+				header.header-projects
+					.project-title
+						h1= project.name
+						h3= project.date
+					.skills
+						each button in project.skills
+							case button.highlight
+								when true
+									a.button.highlight-button(href="#")= button.value
+									- break
+								default
+									a.button(href="#")= button.value
+
+				if project.desImage
+					img(src=project.desImage)
+				p!= project.description
