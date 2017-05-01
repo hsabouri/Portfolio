@@ -1,0 +1,8 @@
+{
+	"config": {
+		"frontend": {
+			"list_limit_skills_number": 3,
+			"projects_limit_skills_number": 4
+		}
+	}
+}

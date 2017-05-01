@@ -1,24 +1,30 @@
 extends layout
 
 block content
-	div.marger
-		div.marger-wrap
-			div.marger-inner
+	include tools/marger.pug
 	section#left
-		h1= name.first + ' ' + name.last
-		p!= description
+		h1= owner.name.first + ' ' + owner.name.last
+		p!= owner.description
+		.extern-links
+			| Find me on 
+			each link in owner.links
+				a(href=link.href)= link.value
 		#projects
 			each project in projects
 				.project
+					- var iter = 0
 					each button in project.skills
+						if iter >= config.list_limit_skills_number
+							- break
 						case button.highlight
 							when true
 								a.button.highlight-button(href="#")= button.value
 								- break
 							default
 								a.button(href="#")= button.value
+						- iter++
 					.project-infos
-						a.project-name(href="#")= project.short
+						a.project-name(href="project/" + project.route)= project.short
 							|  - 
 						span.project-time(href="#")= project.date
 	section#right
@@ -29,14 +35,17 @@ block content
 						h1= project.name
 						h3= project.date
 					.skills
+						- iter = 0
 						each button in project.skills
+							if iter >= config.projects_limit_skills_number
+								- break
 							case button.highlight
 								when true
 									a.button.highlight-button(href="#")= button.value
 									- break
 								default
 									a.button(href="#")= button.value
-
+							- iter++
 				if project.desImage
 					img(src=project.desImage)
 				p!= project.description

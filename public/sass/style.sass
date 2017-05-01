@@ -1,14 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,300i,700,700i')
-
-$or: 0.618034  /* proportion divine */
-$marger: 9.4625%
-$marger-little: 3.0000%
-$inner_percentage: 100% - 2 * $marger
-$inner_percentage-little: 100% - 2 * $marger-little
-$abril: 'Abril Fatface', cursive
-$roboto: 'Roboto', sans-serif
-$touch-color: #1DD3B0
-$grey: #939598
+@import var
 
 //*
 //	background-color: rgba(0,0,0,0.05)
@@ -45,6 +35,8 @@ h3
 @media screen and (max-width : 1650px)
 	.marger
 		width: $marger-little
+		.marger-wrap
+			padding-top: $or * 100%
 	#left
 		width: $inner_percentage-little - ($inner_percentage-little * $or)
 		max-width: $inner_percentage-little - ($inner_percentage-little * $or)
@@ -53,21 +45,51 @@ h3
 		width: $inner_percentage-little * $or
 		max-width: $inner_percentage-little * $or
 
-@media screen and (min-width : 1651px)
+@media screen and (min-width : 1651px) and (max-width : 2000px)
 	.marger
 		width: $marger
+		.marger-wrap
+			padding-top: $or * 100%
 	#left
-		width: $inner_percentage ($inner_percentage * $or)
+		width: $inner_percentage - ($inner_percentage * $or)
 		max-width: $inner_percentage - ($inner_percentage * $or)
 		margin-left: $marger
 	#right
 		width: $inner_percentage * $or
 		max-width: $inner_percentage * $or
 
+@media screen and (min-width : 2001px)
+	.marger
+		width: $marger-big
+		.marger-wrap
+			padding-top: $or * 60%
+	#left
+		width: $inner_percentage-big - ($inner_percentage-big * $or)
+		max-width: $inner_percentage-big - ($inner_percentage-big * $or)
+		margin-left: $marger-big
+	#right
+		width: $inner_percentage-big * $or
+		max-width: $inner_percentage-big * $or
+
+
+@media screen and (max-width : 1260px)
+	#left, #right
+		display: block
+		width: $inner_percentage-little
+		max-width: $inner_percentage-little
+	#right
+		margin-left: $marger-little
+		margin-right: $marger-little
+		margin-top: 50px
+
+@media screen and (min-width : 1261px)
+	#left, #right
+		display: inline-block
+		vertical-align: top
+
 .marger
 	position: relative
 	.marger-wrap
-		padding-top: $or * 100%
 		.marger-inner
 			position: absolute
 			top: 0
@@ -103,57 +125,3 @@ h3
 	color: $touch-color
 	border-color: $touch-color
 	transition-duration: 0.10s
-
-#left, #right
-	display: inline-block
-	vertical-align: top
-
-#left
-	h1
-		line-height: 43px
-		margin: 20px 0px 0px 20px
-		font-family: $abril
-		font-size: 48px
-	p
-		font-size: 18px
-		margin: 40px 40px 0px 40px
-	#projects
-		display: block
-		margin-top: 50px
-		.project
-			margin: 30px 0 0 0
-			font-family: $roboto
-			font-size: 18px
-			.project-infos
-				display: inline-block
-				position: relative
-				top: 2px
-				.project-name
-					margin-left: 15px
-					text-decoration: none
-					color: black;
-				.project-time
-					color: $grey
-
-#right
-	.project-right
-		padding-top: 20px
-		margin-left: 20px
-		header
-			clear: both
-			.project-title
-				display: inline-block
-				h3
-					line-height: 6px
-			.skills
-				float: right
-				margin-top: 25px
-		img
-			width: 200px
-			height: auto
-			float: left
-			margin-left: 20px
-			margin-right: 20px
-		p
-			margin-left: 20px
-			margin-right: 20px
