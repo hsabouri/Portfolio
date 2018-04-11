@@ -1,0 +1,31 @@
+$serif: 'Prata', serif
+$sans: 'Source Sans Pro', sans-serif
+
+body
+    margin: 0
+    padding: 0
+    header#main-header
+        text-align: center
+        height: 3.57vw
+        h1
+            font-family: $sans
+            font-weight: 200
+            font-size: 2.4em
+            text-transform: uppercase
+            padding-top: 2.12vw
+    .main_container
+        @media screen and (min-height: 800px)
+            height: 61.8vh
+        width: 61.8vw
+        padding-top: 3.57vw
+        article.content
+            h1
+                font-family: $serif
+                font-size: 8em
+        .cover
+            position: relative
+            img
+                position: absolute
+                right: 0px
+                height: 61.8vh
+
